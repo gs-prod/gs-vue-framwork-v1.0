@@ -1,14 +1,14 @@
-# gsfw_vue_front
+# qsfw_nuxt3
 基于vue的前端基盘
 
 集成内容包括：  
-1.vue2.x  
-2.nuxt.js  
+1.vue3.x  
+2.nuxt3.x  
 3.typeScript  
-4.element-ui  
-5.vuex  
-6.axios  
-7.axios http返回码封装  
+4.elment plus  
+5.pipia  
+6.useFetch  
+7.useFetch http返回码封装  
 8.dotenv多环境变量配置  
 9.配置代理 解决跨域问题  
 10.echart图表  
