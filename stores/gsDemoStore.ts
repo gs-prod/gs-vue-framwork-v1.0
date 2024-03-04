@@ -1,11 +1,18 @@
 import { defineStore } from "pinia";
 
-export const useGsDemoStore = defineStore("gsDemoStore", () => {
-  let count = ref(1);
-  const doubleCount = computed(() => count.value * 3);
-  function increment() {
-    return ++count.value;
-  }
+export const useGsDemoStore = defineStore("gsDemoStore", {
+  state: () => ({ count: 1 }),
 
-  return { count, doubleCount, increment };
+  getters: {
+    doubleCount() : number {
+      return this.count * 2;
+    },
+  },
+
+  actions: {
+    increment() {
+      return ++this.count;
+    },
+  },
+
 });
