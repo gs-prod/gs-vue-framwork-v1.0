@@ -1,10 +1,10 @@
 import { defineStore } from "pinia";
 
 export const useGsDemoStore = defineStore("gsDemoStore", {
-  state: () => ({ count: 1 }),
+  state: () => ({ count: 1, demoUsers: {} as DemoResp }),
 
   getters: {
-    doubleCount() : number {
+    doubleCount(): number {
       return this.count * 2;
     },
   },
@@ -13,6 +13,43 @@ export const useGsDemoStore = defineStore("gsDemoStore", {
     increment() {
       return ++this.count;
     },
-  },
+    async getDemoUsers() {
+      const { data : result, pending, error, status } = await useFetch(
+        "/api/user",
+        {
+          method: "get",
+          params: { pageNumber: 1, pageSize: 50 },
+        }
+      );
 
+      this.demoUsers = result.value as DemoResp
+
+      return this.demoUsers;
+    },
+  },
 });
+
+interface DemoResp {
+  code: string,
+  message: string,
+  result: DemoResult
+}
+
+interface DemoResult {
+  content: DemoUser[]
+}
+
+interface DemoUser {
+  id: number,
+  createUser: string,
+  updateUser: string,
+  createTime: string,
+  updateTime: string,
+  deleted: boolean,
+  userName: string,
+  password: string,
+  email: string,
+  mobile: number,
+  token: string
+}
+
