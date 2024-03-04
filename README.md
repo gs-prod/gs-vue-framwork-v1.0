@@ -6,7 +6,7 @@
 2.nuxt3.x  
 3.typeScript  
 4.elment plus  
-5.pipia  
+5.pinia  
 6.useFetch  
 7.useFetch http返回码封装  
 8.dotenv多环境变量配置  

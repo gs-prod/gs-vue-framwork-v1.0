@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
-  modules: ["@element-plus/nuxt"],
+  modules: ["@element-plus/nuxt", "@pinia/nuxt"],
   // elementPlus: { /** Options */ }
   plugins: [
     {
