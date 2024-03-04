@@ -17,8 +17,6 @@
 13.ESLint + Prettier代码风格与格式检验  
 14.移动ui框架vant  
 
-# Build Setup
-
 ```bash
 # Nuxt 3 Minimal Starter
 
