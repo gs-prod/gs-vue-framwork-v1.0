@@ -4,6 +4,8 @@
     <p>state: {{ count }}</p>
     <p>getter: {{ doubleCount }}</p>
     <p>action: {{ increment }}</p>
+    <p>store data:</p>
+    <p>{{ demoUsers.result.content }}</p>
   </div>
 </template>
 
@@ -12,4 +14,6 @@ const store = useGsDemoStore();
 const count = store.count;
 const doubleCount = store.doubleCount;
 const increment = store.increment();
+
+const demoUsers = await store.getDemoUsers();
 </script>
