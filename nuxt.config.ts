@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-const load = require('./env');
+const load = require("./env");
 load();
 
 export default defineNuxtConfig({
@@ -30,5 +30,9 @@ export default defineNuxtConfig({
         changeOrigin: true,
       },
     },
+  },
+
+  build: {
+    transpile: ["echarts", "zrender", "tslib"],
   },
 });
