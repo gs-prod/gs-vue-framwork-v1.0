@@ -6,6 +6,8 @@
     <p>action: {{ increment }}</p>
     <p>store data:</p>
     <p>{{ demoUsers.result.content }}</p>
+    <p>store data with QsRequest:</p>
+    <p>{{ demoUsersByQsRequest.result.content }}</p>
   </div>
 </template>
 
@@ -16,4 +18,6 @@ const doubleCount = store.doubleCount;
 const increment = store.increment();
 
 const demoUsers = await store.getDemoUsers();
+
+const demoUsersByQsRequest = await store.getDemoUsersByDemoRequest();
 </script>

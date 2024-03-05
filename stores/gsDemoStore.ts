@@ -13,16 +13,29 @@ export const useGsDemoStore = defineStore("gsDemoStore", {
     increment() {
       return ++this.count;
     },
-    async getDemoUsers() {
-      const { data : result, pending, error, status } = await useFetch(
-        "/api/user",
-        {
-          method: "get",
-          params: { pageNumber: 1, pageSize: 50 },
-        }
-      );
 
-      this.demoUsers = result.value as DemoResp
+    async getDemoUsers() {
+      const {
+        data: result,
+        pending,
+        error,
+        status,
+      } = await useFetch("/api/user", {
+        method: "get",
+        params: { pageNumber: 1, pageSize: 50 },
+      });
+
+      this.demoUsers = result.value as DemoResp;
+      // console.log("error");
+      // console.log(typeof error.value);
+
+      return this.demoUsers;
+    },
+
+    async getDemoUsersByDemoRequest() {
+      const result = await useQsRequest.get("/api/user", {
+        params: { pageNumber: 1, pageSize: 50 },
+      });
 
       return this.demoUsers;
     },
@@ -30,26 +43,25 @@ export const useGsDemoStore = defineStore("gsDemoStore", {
 });
 
 interface DemoResp {
-  code: string,
-  message: string,
-  result: DemoResult
+  code: string;
+  message: string;
+  result: DemoResult;
 }
 
 interface DemoResult {
-  content: DemoUser[]
+  content: DemoUser[];
 }
 
 interface DemoUser {
-  id: number,
-  createUser: string,
-  updateUser: string,
-  createTime: string,
-  updateTime: string,
-  deleted: boolean,
-  userName: string,
-  password: string,
-  email: string,
-  mobile: number,
-  token: string
+  id: number;
+  createUser: string;
+  updateUser: string;
+  createTime: string;
+  updateTime: string;
+  deleted: boolean;
+  userName: string;
+  password: string;
+  email: string;
+  mobile: number;
+  token: string;
 }
-
