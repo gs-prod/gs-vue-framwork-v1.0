@@ -1,4 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const load = require('./env');
+load();
+
 export default defineNuxtConfig({
   ssr: false,
 
@@ -14,18 +17,16 @@ export default defineNuxtConfig({
   ],
 
   runtimeConfig: {
-    // apiSecret: process.env.NUXT_API_SECRET,
+    // apiSecret: process.env.API_SECRET,
     public: {
-      // apiBase: process.env.NUXT_PUBLIC_API_BASE || SERVER_BASE_API,
-      apiBase: "http://localhost:3000",
+      apiBase: process.env.BASE_URL,
     },
   },
 
   nitro: {
     devProxy: {
       "/api/": {
-        // target: process.env.API_TARGET,
-        target: "http://localhost:8081/api",
+        target: process.env.API_URL,
         changeOrigin: true,
       },
     },
