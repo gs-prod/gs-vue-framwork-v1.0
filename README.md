@@ -12,7 +12,7 @@
 8.dotenv多环境变量配置  
 9.配置代理 解决跨域问题  
 10.echart图表  
-11.vue auth  
+11.Nuxt-Auth  
 12.基于jwt登陆  
 13.ESLint + Prettier代码风格与格式检验  
 14.移动ui框架vant  

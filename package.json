@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.7",
+    "@sidebase/nuxt-auth": "^0.6.7",
     "element-plus": "^2.6.0"
   }
 }

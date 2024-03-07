@@ -20,7 +20,7 @@ export const useGsDemoStore = defineStore("gsDemoStore", {
         pending,
         error,
         status,
-      } = await useFetch("/api/user", {
+      } = await useQsRequest.get("/api/user", {
         method: "get",
         params: { pageNumber: 1, pageSize: 50 },
       });

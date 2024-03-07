@@ -12,6 +12,8 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({ auth: true });
+
 const store = useGsDemoStore();
 const count = store.count;
 const doubleCount = store.doubleCount;

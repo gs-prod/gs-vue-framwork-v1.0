@@ -7,7 +7,7 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  modules: ["@element-plus/nuxt", "@pinia/nuxt"],
+  modules: ["@element-plus/nuxt", "@pinia/nuxt", "@sidebase/nuxt-auth"],
 
   // elementPlus: { /** Options */ }
   plugins: [
@@ -34,5 +34,26 @@ export default defineNuxtConfig({
 
   build: {
     transpile: ["echarts", "zrender", "tslib"],
+  },
+
+  auth: {
+    globalAppMiddleware: true,
+    baseURL: "/api",
+    session: {
+      enableRefreshOnWindowFocus: false,
+    },
+    provider: {
+      type: "local",
+      endpoints: {
+        signIn: { path: "/login", method: "post" },
+        // signOut: { path: "/logout", method: "post" },
+        // signUp: { path: "/register", method: "post" },
+        getSession: { path: "/getUserInfo", method: "post" },
+      },
+      pages: {
+        login: "/demo/auth",
+      },
+      token: { signInResponseTokenPointer: "/result/token" },
+    },
   },
 });
