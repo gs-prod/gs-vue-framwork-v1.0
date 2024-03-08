@@ -17,7 +17,7 @@ function load() {
   }
 
   console.log(
-    "Load env in [" + envFile + "] with [" + process.env.NODE_ENV + "] MODE..."
+    "Load env in [" + envFile + "] with [" + process.env.NODE_ENV + "] MODE...",
   );
 
   return require("dotenv").config({

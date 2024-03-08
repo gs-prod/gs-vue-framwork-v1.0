@@ -1,4 +1,5 @@
 # qsfw_nuxt3
+
 基于vue的前端基盘
 
 集成内容包括：  
@@ -15,7 +16,7 @@
 11.Nuxt-Auth  
 12.基于jwt登陆  
 13.ESLint + Prettier代码风格与格式检验  
-14.移动ui框架vant  
+14.移动ui框架vant
 
 ```bash
 # Nuxt 3 Minimal Starter
@@ -88,3 +89,4 @@ bun run preview
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
+```
