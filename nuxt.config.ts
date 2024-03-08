@@ -7,7 +7,12 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  modules: ["@element-plus/nuxt", "@pinia/nuxt", "@sidebase/nuxt-auth"],
+  modules: [
+    "@element-plus/nuxt",
+    "@pinia/nuxt",
+    "@sidebase/nuxt-auth",
+    "@vant/nuxt",
+  ],
 
   // elementPlus: { /** Options */ }
   plugins: [
@@ -39,6 +44,7 @@ export default defineNuxtConfig({
   auth: {
     globalAppMiddleware: true,
     baseURL: "/api",
+    // @ts-ignore
     session: {
       enableRefreshOnWindowFocus: false,
     },

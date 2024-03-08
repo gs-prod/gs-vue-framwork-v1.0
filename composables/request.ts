@@ -1,5 +1,5 @@
 import { ElMessage } from "element-plus";
-const { status, data, signIn, signOut, token } = useAuth();
+const { status, token } = useAuth();
 
 // type UrlType = string | Request | Ref<string | Request> | (() => string | Request);
 
@@ -19,7 +19,9 @@ const request = async (url: string, params: any, options: RequestOptions) => {
     method,
     params: { ...params },
     headers:
-      status.value === "authenticated" ? { Authorization: token.value } : {},
+      status.value === "authenticated"
+        ? { Authorization: token.value || "" }
+        : {},
     // lazy: true,
     // credentials: 'include',
     body: method === "POST" ? JSON.stringify(params) : undefined,
