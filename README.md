@@ -17,6 +17,9 @@
 12.基于jwt登陆  
 13.ESLint + Prettier代码风格与格式检验  
 14.移动ui框架vant
+15.后台管理系统sample
+16.单表的crud
+17.登陆画面
 
 ```bash
 # Nuxt 3 Minimal Starter
