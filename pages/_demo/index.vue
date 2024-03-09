@@ -7,3 +7,7 @@
     <LazyElButton type="warning">lazy button</LazyElButton>
   </div>
 </template>
+
+<script setup lang="ts">
+definePageMeta({ auth: false });
+</script>

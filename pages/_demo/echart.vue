@@ -26,6 +26,7 @@ use([
   LegendComponent,
   GridComponent,
 ]);
+definePageMeta({ auth: false });
 const option = ref({
   title: {
     text: "Traffic Sources",
