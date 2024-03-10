@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-definePageMeta({ auth: false });
+definePageMeta({ auth: false, layout: "no-layout" });
 const { signIn, status } = useAuth();
 
 const username = ref("");

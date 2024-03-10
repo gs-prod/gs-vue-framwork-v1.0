@@ -42,6 +42,7 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({ auth: false, layout: "no-layout" });
 import type { FormInstance } from "element-plus";
 const { signIn, status } = useAuth();
 

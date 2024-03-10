@@ -1,0 +1,13 @@
+// 菜单的字体颜色
+$color: #fff;
+
+// 菜单的背景色
+$backgroud-color: #184084;
+
+$is-active-color: #0c58ad;
+
+// a标签样式
+a {
+  color: $color;
+  text-decoration: none;
+}

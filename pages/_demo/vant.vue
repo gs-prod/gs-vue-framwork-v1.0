@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({ auth: false });
+definePageMeta({ auth: false, layout: "no-layout" });
 </script>
 
 <style lang="less">
