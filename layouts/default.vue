@@ -91,7 +91,7 @@ html {
 
 @media (min-width: 1441px) {
   .content—body {
-    width: calc(100vw - 240px);
+    width: calc(100vw - 210px);
   }
 }
 

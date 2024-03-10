@@ -9,7 +9,7 @@ export const useTagsViewStore = defineStore("tagsViewStore", {
   actions: {
     addView(params: ViewTag) {
       this.addVisitedView(params);
-      this.addCachedView(params.router);
+      this.addCachedView(params);
     },
     addVisitedView(params: ViewTag) {
       if (this.visitedViews.some((v) => v.router.path === params.router.path)) {

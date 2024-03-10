@@ -72,7 +72,7 @@ async function handleLogin(loginFormRef: FormInstance | undefined) {
             userName: loginForm.userName,
             password: loginForm.password,
           },
-          { callbackUrl: "/_demo/store" },
+          { callbackUrl: "/_demo/user" },
         );
         // navigateTo('/demo/store', { external: true })
       } catch (error) {
