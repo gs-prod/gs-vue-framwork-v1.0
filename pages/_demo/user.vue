@@ -6,13 +6,11 @@
         <DemoUserSearch ref="infoSearch" />
       </template>
     </CommonContentContainer>
-    <!-- <ContentContainer>
-      <DepartmentInfoTable
-        slot="content"
-        ref="invalidTable"
-        :search-form="searchForm"
-      />
-    </ContentContainer> -->
+    <CommonContentContainer>
+      <template #content>
+        <DemoUserTable ref="invalidTable" :search-form="{}" />
+      </template>
+    </CommonContentContainer>
   </div>
 </template>
 
