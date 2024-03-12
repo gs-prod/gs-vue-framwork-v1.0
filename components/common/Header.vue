@@ -2,7 +2,7 @@
   <div class="header">
     <div class="left">
       <div style="width: 40px; height: 40px; margin-top: 12px">
-        <img src="~/public/img/acquisitipn.png" alt="图片" width="100%" />
+        <img src="~/public/img/gear-2.png" alt="图片" width="100%" />
       </div>
       <div>
         <div class="leftText">青石管理平台</div>
@@ -31,11 +31,11 @@
       >
         <div style="margin-top: 16px">
           <img
-            src="~/public/img/home.png"
+            src="~/public/img/house-5.png"
             style="width: 30px; height: 30px; margin-right: 5px"
           />
         </div>
-        <div style="color: white; line-height: 65px; font-size: 14px">首页</div>
+        <div class="top-right-corner-btn">首页</div>
       </div>
       <!-- <div style="display: flex; margin: 0px 10px"> -->
       <!-- <div style="margin-top: 15px">
@@ -65,11 +65,11 @@
       >
         <div style="margin-top: 19px">
           <img
-            src="~/public/img/logout.png"
+            src="~/public/img/arrow-door-out-3.png"
             style="width: 25px; height: 25px; margin-right: 5px"
           />
         </div>
-        <div style="color: white; line-height: 65px; font-size: 14px">退出</div>
+        <div class="top-right-corner-btn">退出</div>
       </div>
     </div>
   </div>
@@ -124,12 +124,14 @@ function logout() {
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/sass/global.scss";
 .header {
   height: 65px;
   width: 100%;
-  background: #2f64b3;
+  // background: #2f64b3;
   display: flex;
   padding: 0 10px;
+  // border-bottom: 1px solid $color;
 }
 .left {
   flex: 1;
@@ -140,7 +142,7 @@ function logout() {
   display: flex;
 }
 .leftText {
-  color: white;
+  color: $color;
   font-size: 16px;
   font-weight: 600;
   margin: 15px 5px 0px 5px;
@@ -163,5 +165,10 @@ function logout() {
   margin-right: 5px;
   font-size: 30px;
   color: #fff;
+}
+.top-right-corner-btn {
+  color: $color;
+  line-height: 65px;
+  font-size: 14px;
 }
 </style>

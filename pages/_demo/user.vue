@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CommonTagsView title="DemoUser" />
+    <!-- <CommonTagsView title="DemoUser" /> -->
     <CommonContentContainer>
       <template #content>
         <DemoUserSearch ref="infoSearch" />

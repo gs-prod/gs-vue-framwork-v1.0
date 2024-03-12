@@ -23,35 +23,35 @@ const props = withDefaults(defineProps<DemoUserTableProps>(), {});
 const data = reactive({
   tableLabel: [
     {
-      prop: "deptName",
-      label: "科室名称",
+      prop: "id",
+      label: "ID",
     },
     {
-      prop: "personNum",
-      label: "结算人次",
+      prop: "name",
+      label: "姓名",
     },
     {
-      prop: "unEffExpenses",
-      label: "无效收入合计",
-    },
-    {
-      prop: "aveUnEffExpenses",
-      label: "人均无效收入",
-    },
-    {
-      prop: "aveUnEffQuota",
-      label: "人均无效收入定额",
-    },
-    {
-      prop: "aveOverspend",
-      label: "人均超支金额",
-    },
-    {
-      prop: "overspendAmount",
-      label: "扣款金额",
+      prop: "gender",
+      label: "性别",
     },
   ],
-  tableData: [],
+  tableData: [
+    {
+      id: 1,
+      name: "James Smith",
+      gender: "male",
+    },
+    {
+      id: 2,
+      name: "Benjamin Johnson",
+      gender: "male",
+    },
+    {
+      id: 3,
+      name: "Emily Williams",
+      gender: "female",
+    },
+  ],
   loading: false,
   selection: false,
   pagination: false,

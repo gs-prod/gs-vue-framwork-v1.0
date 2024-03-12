@@ -1,5 +1,5 @@
 <template>
-  <el-form ref="form" :inline="true" :model="data.form" size="small">
+  <el-form ref="form" :inline="true" :model="data.form">
     <div style="display: flex">
       <div style="flex: 1">
         <el-form-item label="结算时间">
@@ -33,7 +33,7 @@
         </el-form-item>
       </div>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">查询</el-button>
+        <el-button type="default" @click="onSubmit">查询</el-button>
       </el-form-item>
     </div>
   </el-form>

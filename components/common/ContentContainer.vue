@@ -17,7 +17,7 @@
   display: block;
   height: auto;
   // width: calc(100vw - 180px);
-  background: #eff2f6;
+  // background: #eff2f6;
   padding: 10px 10px 0px 10px;
   padding-top: 10px;
   &-block {

@@ -8,15 +8,16 @@
       default-active="2"
       class="el-menu-vertical-demo"
       :collapse="isCollapse"
-      text-color="#fff"
+      text-color="#93939B"
       active-color="#000"
-      background-color="#184084"
+      active-text-color="#0c58ad"
+      background-color="#fff"
       @open="handleOpen"
       @close="handleClose"
     >
       <el-sub-menu index="1">
         <template #title>
-          <el-icon><Location /></el-icon>
+          <el-icon><Location color="#000" /></el-icon>
           <span>Navigator One</span>
         </template>
         <el-menu-item-group>
@@ -49,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-import { Location, Document, Position, Setting } from "@element-plus/icons-vue";
+import { Setting, Document, Position, Location } from "@element-plus/icons-vue";
 
 const isCollapse = ref(false);
 

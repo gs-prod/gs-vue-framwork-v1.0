@@ -4,8 +4,6 @@
       v-loading="tableLoading"
       :data="tableData"
       :max-height="tableMaxHeight"
-      size="small"
-      border
       :height="tableHeight"
       :stripe="true"
       :highlight-current-row="true"
