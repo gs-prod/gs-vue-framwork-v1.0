@@ -106,7 +106,7 @@ function handleCurrentChange() {}
 
 function tableHeadLength(label: string) {
   label = label || "";
-  if (label && label.length > 4) {
+  if (label && label.length > 8) {
     return label.length * 20;
   } else {
     return "";

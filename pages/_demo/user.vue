@@ -3,12 +3,12 @@
     <!-- <CommonTagsView title="DemoUser" /> -->
     <CommonContentContainer>
       <template #content>
-        <DemoUserSearch ref="infoSearch" />
+        <DemoUserSearch ref="demoUserSearch" />
       </template>
     </CommonContentContainer>
     <CommonContentContainer>
       <template #content>
-        <DemoUserTable ref="invalidTable" :search-form="{}" />
+        <DemoUserTable ref="demoUserTable" :search-form="{}" />
       </template>
     </CommonContentContainer>
   </div>

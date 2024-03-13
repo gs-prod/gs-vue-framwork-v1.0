@@ -1,7 +1,7 @@
 <template>
   <div>
     <ElITable
-      :table-data="data.tableData"
+      :table-data="demoUserStore.demoUsers"
       :label-list="data.tableLabel"
       :table-loading="data.loading"
       :pagination="data.pagination"
@@ -14,11 +14,11 @@
 </template>
 
 <script setup lang="ts">
-interface DemoUserTableProps {
-  searchForm: {};
-}
+// interface DemoUserTableProps {
+//   searchForm: {};
+// }
 
-const props = withDefaults(defineProps<DemoUserTableProps>(), {});
+// const props = withDefaults(defineProps<DemoUserTableProps>(), {});
 
 const data = reactive({
   tableLabel: [
@@ -27,38 +27,28 @@ const data = reactive({
       label: "ID",
     },
     {
-      prop: "name",
-      label: "姓名",
+      prop: "userName",
+      label: "userName",
     },
     {
-      prop: "gender",
-      label: "性别",
+      prop: "email",
+      label: "email",
+    },
+    {
+      prop: "mobile",
+      label: "mobile",
     },
   ],
-  tableData: [
-    {
-      id: 1,
-      name: "James Smith",
-      gender: "male",
-    },
-    {
-      id: 2,
-      name: "Benjamin Johnson",
-      gender: "male",
-    },
-    {
-      id: 3,
-      name: "Emily Williams",
-      gender: "female",
-    },
-  ],
-  loading: false,
+  loading: true,
   selection: false,
   pagination: false,
 });
 
-onMounted(() => {
-  // console.log(123456);
+const demoUserStore = useGsDemoUserStore();
+
+onMounted(async () => {
+  await demoUserStore.getDemoUsers();
+  data.loading = false;
 });
 
 // @ts-ignore

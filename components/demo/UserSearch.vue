@@ -2,7 +2,7 @@
   <el-form ref="form" :inline="true" :model="data.form">
     <div style="display: flex">
       <div style="flex: 1">
-        <el-form-item label="结算时间">
+        <!-- <el-form-item label="结算时间">
           <el-date-picker
             v-model="data.form.date"
             value-format="yyyy/MM/dd"
@@ -13,8 +13,32 @@
             end-placeholder="结束日期"
           >
           </el-date-picker>
+        </el-form-item> -->
+        <el-form-item label="userName">
+          <el-input
+            v-model="data.form.userName"
+            style="width: 240px"
+            placeholder="Please input userName"
+            clearable
+          />
         </el-form-item>
-        <el-form-item label="country">
+        <el-form-item label="email">
+          <el-input
+            v-model="data.form.email"
+            style="width: 240px"
+            placeholder="Please input email"
+            clearable
+          />
+        </el-form-item>
+        <el-form-item label="mobile">
+          <el-input
+            v-model="data.form.mobile"
+            style="width: 240px"
+            placeholder="Please input mobile"
+            clearable
+          />
+        </el-form-item>
+        <!-- <el-form-item label="country">
           <el-select
             v-model="data.form.deptCode"
             placeholder="Please select"
@@ -30,7 +54,7 @@
             >
             </el-option>
           </el-select>
-        </el-form-item>
+        </el-form-item> -->
       </div>
       <el-form-item>
         <el-button type="default" @click="onSubmit">查询</el-button>
@@ -42,8 +66,11 @@
 <script setup lang="ts">
 const data = reactive({
   form: {
-    date: null as unknown as [Date, Date],
-    deptCode: "",
+    // date: null as unknown as [Date, Date],
+    // deptCode: "",
+    userName: "",
+    email: "",
+    mobile: "",
   },
   deptOptions: [
     { code: 0, name: "China mainland" },
@@ -51,12 +78,14 @@ const data = reactive({
   ],
 });
 
+const demoUserStore = useGsDemoUserStore();
+
 onMounted(() => {
   // console.log("loaded");
 });
 
 function onSubmit(e: MouseEvent) {
-  console.log("execute a query");
+  demoUserStore.getDemoUsers(data.form);
 }
 </script>
 

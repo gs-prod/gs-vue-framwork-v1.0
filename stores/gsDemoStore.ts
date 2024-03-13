@@ -41,27 +41,3 @@ export const useGsDemoStore = defineStore("gsDemoStore", {
     },
   },
 });
-
-interface DemoResp {
-  code: string;
-  message: string;
-  result: DemoResult;
-}
-
-interface DemoResult {
-  content: DemoUser[];
-}
-
-interface DemoUser {
-  id: number;
-  createUser: string;
-  updateUser: string;
-  createTime: string;
-  updateTime: string;
-  deleted: boolean;
-  userName: string;
-  password: string;
-  email: string;
-  mobile: number;
-  token: string;
-}
