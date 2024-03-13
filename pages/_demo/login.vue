@@ -26,7 +26,7 @@
           @keyup.enter="handleLogin(loginFormRef)"
         />
       </el-form-item>
-      <el-form-item style="width: 100%">
+      <el-form-item style="width: 100%;height:300px">
         <el-button
           :loading="loading"
           type="primary"
@@ -92,13 +92,15 @@ body {
 }
 .login {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 100vh;
-  background-color: #333;
+  background-image: url("../../public/东方明珠.jpg");
+  background-size: contain;
+  //background-repeat: no-repeat;
 }
 .title {
-  margin: 0px auto 40px auto;
+  margin: 0px auto 15px auto;
   text-align: center;
   color: #707070;
 }
@@ -106,7 +108,9 @@ body {
 .login-form {
   border-radius: 6px;
   background: #ffffff;
-  width: 365px;
+  margin-left: 80px;
+  height:400px;
+  width: 250px;
   padding: 25px 25px 5px 25px;
   .el-input {
     height: 38px;
