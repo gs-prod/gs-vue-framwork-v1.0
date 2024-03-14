@@ -26,7 +26,7 @@
           @keyup.enter="handleLogin(loginFormRef)"
         />
       </el-form-item>
-      <el-form-item style="width: 100%;height:300px">
+      <el-form-item style="width: 100%; height: 300px">
         <el-button
           :loading="loading"
           type="primary"
@@ -44,7 +44,7 @@
 <script setup lang="ts">
 definePageMeta({ auth: false, layout: "no-layout" });
 import type { FormInstance } from "element-plus";
-const { signIn, status } = useAuth();
+const { signIn, status } = sideBaseUseAuth();
 
 const loading = ref(false);
 const loginFormRef = ref<FormInstance>();
@@ -74,9 +74,13 @@ async function handleLogin(loginFormRef: FormInstance | undefined) {
           },
           { callbackUrl: "/_demo/user" },
         );
-        // navigateTo('/demo/store', { external: true })
       } catch (error) {
-        console.error(error);
+        ElNotification({
+          title: "登录失败",
+          message: "请检查网络连接",
+          type: "error",
+        });
+      } finally {
         loading.value = false;
       }
     } else {
@@ -109,7 +113,7 @@ body {
   border-radius: 6px;
   background: #ffffff;
   margin-left: 80px;
-  height:400px;
+  height: 400px;
   width: 250px;
   padding: 25px 25px 5px 25px;
   .el-input {

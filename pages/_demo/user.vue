@@ -8,6 +8,11 @@
     </CommonContentContainer>
     <CommonContentContainer>
       <template #content>
+        <DemoUserBtnGroup ref="demoUserBtnGroup" />
+      </template>
+    </CommonContentContainer>
+    <CommonContentContainer>
+      <template #content>
         <DemoUserTable ref="demoUserTable" :search-form="{}" />
       </template>
     </CommonContentContainer>

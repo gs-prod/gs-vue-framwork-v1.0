@@ -57,7 +57,9 @@
         </el-form-item> -->
       </div>
       <el-form-item>
-        <el-button type="default" @click="onSubmit">查询</el-button>
+        <el-button type="default" style="margin-bottom: 0px" @click="onSubmit"
+          >查询</el-button
+        >
       </el-form-item>
     </div>
   </el-form>
