@@ -13,7 +13,7 @@ const request = async (url: string, params: any, options: RequestOptions) => {
   const { apiBase: baseURL } = useRuntimeConfig().public;
   const { method = ((options?.method || "GET") as string).toUpperCase() } =
     options;
-  return await useFetch(url, {
+  const response = await useFetch(url, {
     default: () => [],
     baseURL,
     method,
@@ -38,28 +38,53 @@ const request = async (url: string, params: any, options: RequestOptions) => {
       // return response._data;
     },
     onResponseError({ request, response, options }) {
-      // ElMessage.closeAll();
       switch (response.status) {
         case 401:
-          ElMessage.error("登录到期,请重新登录");
           // @ts-ignore
           // location.href = process.env.DRG_LOGIN_URL;
+          ElNotification({
+            title: "Error",
+            message: "登录到期,请重新登录",
+            type: "error",
+          });
           break;
         case 400:
-          ElMessage.error("参数不正确");
+          ElNotification({
+            title: "Error",
+            message: "参数不正确",
+            type: "error",
+          });
           break;
         case 403:
-          ElMessage.error("禁止访问");
+          ElNotification({
+            title: "Error",
+            message: "禁止访问",
+            type: "error",
+          });
           break;
         case 422:
-          // @ts-ignore
-          ElMessage.error(response.data.message);
+          ElNotification({
+            title: "Error",
+            // @ts-ignore
+            message: response.data.message,
+            type: "error",
+          });
           break;
         default:
-          ElMessage.error("内部服务器错误");
+          ElNotification({
+            title: "Error",
+            message: "内部服务器错误",
+            type: "error",
+          });
       }
     },
   });
+
+  if (response.status.value === "error") {
+    throw "request error occur";
+  }
+
+  return response;
 };
 
 export const useQsRequest = {

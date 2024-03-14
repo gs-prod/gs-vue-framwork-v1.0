@@ -25,6 +25,21 @@ export const useGsDemoUserStore = defineStore("gsDemoUserStore", {
         result as Ref<CommonListsResp>
       ).value.result.totalElements;
     },
+
+    async addDemoUser(params: {
+      userName: string;
+      email: string;
+      mobile: string;
+      password: string;
+      confirmPassword: string;
+    }) {
+      const { data, pending, error, status } = await useQsRequest.post(
+        "/api/user",
+        {
+          ...params,
+        },
+      );
+    },
   },
 });
 

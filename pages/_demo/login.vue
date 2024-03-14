@@ -76,7 +76,7 @@ async function handleLogin(loginFormRef: FormInstance | undefined) {
         );
       } catch (error) {
         ElNotification({
-          title: "登录失败",
+          title: "Error",
           message: "请检查网络连接",
           type: "error",
         });
