@@ -2,6 +2,9 @@
   <div>
     <ElITable
       :table-data="demoUserStore.demoUsers"
+      :total="demoUserStore.totalElements"
+      :current-page="demoUserStore.pageNumber"
+      :page-size="demoUserStore.pageSize"
       :label-list="data.tableLabel"
       :table-loading="data.loading"
       :pagination="data.pagination"
@@ -9,17 +12,12 @@
       table-max-height="70vh"
       table-height="70vh"
       @row-dblclick="goToDetail"
+      @current-change="handleCurrentChange"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-// interface DemoUserTableProps {
-//   searchForm: {};
-// }
-
-// const props = withDefaults(defineProps<DemoUserTableProps>(), {});
-
 const data = reactive({
   tableLabel: [
     {
@@ -41,7 +39,7 @@ const data = reactive({
   ],
   loading: true,
   selection: false,
-  pagination: false,
+  pagination: true,
 });
 
 const demoUserStore = useGsDemoUserStore();
@@ -53,6 +51,11 @@ onMounted(async () => {
 
 // @ts-ignore
 function goToDetail(row) {}
+
+function handleCurrentChange(value: number) {
+  demoUserStore.pageNumber = value;
+  demoUserStore.getDemoUsers();
+}
 </script>
 
 <style></style>

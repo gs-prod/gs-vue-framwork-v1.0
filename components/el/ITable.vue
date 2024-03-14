@@ -26,11 +26,9 @@
     <el-pagination
       v-if="pagination"
       style="margin-top: 5px"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="400"
-      :current-page="data.currentPage4"
-      :page-sizes="[100, 200, 300, 400]"
-      :page-size="100"
+      :total="total"
+      :current-page="currentPage"
+      :page-size="pageSize"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
     >
@@ -40,10 +38,13 @@
 
 <script setup lang="ts">
 interface ITableProps {
-  tableData: NonNullable<[]>;
+  tableData: NonNullable<any[]>;
   labelList: NonNullable<LabelList[]>;
   selection: boolean;
   pagination: boolean;
+  total: NonNullable<number>;
+  currentPage: NonNullable<number>;
+  pageSize: NonNullable<number>;
   tableLoading: boolean;
   tableMaxHeight: string;
   tableHeight: string;
@@ -73,6 +74,7 @@ const data = reactive({
 type Emits = {
   (event: "row-click", value: string): void;
   (event: "row-dblclick", value: string): void;
+  (event: "current-change", value: number): void;
 };
 
 const emits = defineEmits<Emits>();
@@ -102,7 +104,10 @@ function rowClick(row) {
 }
 
 function handleSizeChange() {}
-function handleCurrentChange() {}
+
+function handleCurrentChange(value: number) {
+  emits("current-change", value);
+}
 
 function tableHeadLength(label: string) {
   label = label || "";

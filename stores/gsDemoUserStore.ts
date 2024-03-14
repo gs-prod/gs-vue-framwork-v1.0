@@ -1,7 +1,17 @@
 import { defineStore } from "pinia";
 
 export const useGsDemoUserStore = defineStore("gsDemoUserStore", {
-  state: () => ({ demoUsers: [] as DemoUser[], totalElements: 0 }),
+  state: () => ({
+    demoUsers: [] as DemoUser[],
+    totalElements: 0,
+    pageNumber: 1,
+    pageSize: 20,
+    params: {
+      userName: "",
+      email: "",
+      mobile: "",
+    },
+  }),
 
   actions: {
     async getDemoUsers(params?: {
@@ -9,15 +19,16 @@ export const useGsDemoUserStore = defineStore("gsDemoUserStore", {
       email: string;
       mobile: string;
     }) {
+      if (params !== undefined) this.params = params;
       const {
         data: result,
         pending,
         error,
         status,
       } = await useQsRequest.get("/api/user", {
-        ...params,
-        pageNumber: 1,
-        pageSize: 10,
+        ...this.params,
+        pageNumber: this.pageNumber,
+        pageSize: this.pageSize,
       });
 
       this.demoUsers = (result as Ref<CommonListsResp>).value.result.content;
