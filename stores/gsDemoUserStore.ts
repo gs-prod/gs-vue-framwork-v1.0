@@ -11,6 +11,7 @@ export const useGsDemoUserStore = defineStore("gsDemoUserStore", {
       email: "",
       mobile: "",
     },
+    demoUserDetail: {} as DemoUser,
   }),
 
   actions: {
@@ -20,12 +21,7 @@ export const useGsDemoUserStore = defineStore("gsDemoUserStore", {
       mobile: string;
     }) {
       if (params !== undefined) this.params = params;
-      const {
-        data: result,
-        pending,
-        error,
-        status,
-      } = await useQsRequest.get("/api/user", {
+      const { data: result } = await useQsRequest.get("/api/user", {
         ...this.params,
         pageNumber: this.pageNumber,
         pageSize: this.pageSize,
@@ -44,19 +40,29 @@ export const useGsDemoUserStore = defineStore("gsDemoUserStore", {
       password: string;
       confirmPassword: string;
     }) {
-      const { data, pending, error, status } = await useQsRequest.post(
-        "/api/user",
-        {
-          ...params,
-        },
-      );
+      await useQsRequest.post("/api/user", {
+        ...params,
+      });
+    },
+
+    async getDemoUserDetail(id: number) {
+      const { data } = await useQsRequest.get("/api/user/detail", {
+        id,
+      });
+      console.log((data as Ref<CommonResp<DemoUser>>).value.result);
+      this.demoUserDetail = (data as Ref<CommonResp<DemoUser>>).value.result;
+    },
+
+    async editDemoUser(params: {
+      userName: string;
+      email: string;
+      mobile: string;
+      password: string;
+      confirmPassword: string;
+    }) {
+      await useQsRequest.put("/api/user", {
+        ...params,
+      });
     },
   },
 });
-
-interface DemoUser {
-  id: number;
-  userName: string;
-  email: string;
-  mobile: number;
-}

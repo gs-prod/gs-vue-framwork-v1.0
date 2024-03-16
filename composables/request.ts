@@ -94,4 +94,7 @@ export const useQsRequest = {
   post: (url: string, params?: any, option?: RequestOptions) => {
     return request(url, params, { method: "POST", ...option });
   },
+  put: (url: string, params?: any, option?: RequestOptions) => {
+    return request(url, params, { method: "PUT", ...option });
+  },
 };

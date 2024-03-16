@@ -8,14 +8,10 @@ interface LabelList {
   prop: string;
 }
 
-interface DemoResp {
+interface CommonResp<T> {
   code: string;
   message: string;
-  result: DemoResult;
-}
-
-interface DemoResult {
-  content: DemoUser[];
+  result: T;
 }
 
 interface ListsResult {
@@ -27,4 +23,11 @@ interface CommonListsResp {
   code: string;
   message: string;
   result: ListsResult;
+}
+
+interface DemoUser {
+  id: number;
+  userName: string;
+  email: string;
+  mobile: number;
 }

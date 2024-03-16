@@ -22,6 +22,7 @@
           :width="item.width"
         />
       </template>
+      <slot name="default" />
     </el-table>
     <el-pagination
       v-if="pagination"

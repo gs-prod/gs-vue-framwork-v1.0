@@ -13,11 +13,27 @@
       table-height="70vh"
       @row-dblclick="goToDetail"
       @current-change="handleCurrentChange"
-    />
+    >
+      <el-table-column>
+        <template #default="scope">
+          <el-button @click="handleEdit(scope.$index, scope.row)"
+            >Edit</el-button
+          >
+          <el-button
+            type="danger"
+            @click="handleDelete(scope.$index, scope.row)"
+            >Delete</el-button
+          >
+        </template>
+      </el-table-column>
+    </ElITable>
+    <DemoUserEdit ref="editDialogRef" />
   </div>
 </template>
 
 <script setup lang="ts">
+import type { FormInstance } from "element-plus";
+
 const data = reactive({
   tableLabel: [
     {
@@ -42,6 +58,8 @@ const data = reactive({
   pagination: true,
 });
 
+const editDialogRef = ref<FormInstance>();
+
 const demoUserStore = useGsDemoUserStore();
 
 onMounted(async () => {
@@ -56,6 +74,13 @@ function handleCurrentChange(value: number) {
   demoUserStore.pageNumber = value;
   demoUserStore.getDemoUsers();
 }
+
+const handleEdit = (index: number, row: DemoUser) => {
+  // @ts-ignore
+  editDialogRef.value?.openDialog(row);
+};
+
+function handleDelete(index: number, row: DemoUser) {}
 </script>
 
 <style></style>
