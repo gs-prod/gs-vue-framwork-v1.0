@@ -49,7 +49,6 @@ export const useGsDemoUserStore = defineStore("gsDemoUserStore", {
       const { data } = await useQsRequest.get("/api/user/detail", {
         id,
       });
-      console.log((data as Ref<CommonResp<DemoUser>>).value.result);
       this.demoUserDetail = (data as Ref<CommonResp<DemoUser>>).value.result;
     },
 
@@ -62,6 +61,12 @@ export const useGsDemoUserStore = defineStore("gsDemoUserStore", {
     }) {
       await useQsRequest.put("/api/user", {
         ...params,
+      });
+    },
+
+    async deleteDemoUser(id: number) {
+      await useQsRequest.delete("/api/user", {
+        id,
       });
     },
   },

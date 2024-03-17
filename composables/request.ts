@@ -97,4 +97,7 @@ export const useQsRequest = {
   put: (url: string, params?: any, option?: RequestOptions) => {
     return request(url, params, { method: "PUT", ...option });
   },
+  delete: (url: string, params?: any, option?: RequestOptions) => {
+    return request(url, params, { method: "DELETE", ...option });
+  },
 };

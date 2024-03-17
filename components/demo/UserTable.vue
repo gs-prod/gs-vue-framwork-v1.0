@@ -19,11 +19,18 @@
           <el-button @click="handleEdit(scope.$index, scope.row)"
             >Edit</el-button
           >
-          <el-button
-            type="danger"
-            @click="handleDelete(scope.$index, scope.row)"
-            >Delete</el-button
+
+          <el-popconfirm
+            confirm-button-text="Yes"
+            cancel-button-text="No"
+            icon-color="#626AEF"
+            title="Are you sure to delete this?"
+            @confirm="handleDelete(scope.$index, scope.row)"
           >
+            <template #reference>
+              <el-button type="danger">Delete</el-button>
+            </template>
+          </el-popconfirm>
         </template>
       </el-table-column>
     </ElITable>
@@ -80,7 +87,10 @@ const handleEdit = (index: number, row: DemoUser) => {
   editDialogRef.value?.openDialog(row);
 };
 
-function handleDelete(index: number, row: DemoUser) {}
+const handleDelete = async (index: number, row: DemoUser) => {
+  await demoUserStore.deleteDemoUser(row.id);
+  demoUserStore.getDemoUsers();
+};
 </script>
 
 <style></style>
