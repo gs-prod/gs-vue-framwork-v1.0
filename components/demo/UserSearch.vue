@@ -17,7 +17,7 @@
         <el-form-item label="userName">
           <el-input
             v-model="data.form.userName"
-            style="width: 240px"
+            style="width: 170px"
             placeholder="Please input userName"
             clearable
           />
@@ -25,7 +25,7 @@
         <el-form-item label="email">
           <el-input
             v-model="data.form.email"
-            style="width: 240px"
+            style="width: 170px"
             placeholder="Please input email"
             clearable
           />
@@ -33,7 +33,7 @@
         <el-form-item label="mobile">
           <el-input
             v-model="data.form.mobile"
-            style="width: 240px"
+            style="width: 170px"
             placeholder="Please input mobile"
             clearable
           />
