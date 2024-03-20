@@ -1,6 +1,6 @@
 const path = require("path");
 
-function load() {
+const load = () => {
   let envFile = "";
   switch (process.env.NODE_ENV) {
     case "development":
@@ -23,6 +23,6 @@ function load() {
   return require("dotenv").config({
     path: path.resolve(process.cwd(), envFile),
   });
-}
+};
 
 module.exports = load;

@@ -34,8 +34,8 @@ onMounted(() => {
   if (status.value === "authenticated") navigateTo("/demo/store");
 });
 
-async function signInWithCredentials() {
-  // Probably you'll do some validation here before submitting to the backend
+const signInWithCredentials = async () => {
+   // Probably you'll do some validation here before submitting to the backend
   // ...
   // This is the object that our backend expects for the `signIn` endpoint
   const credentials = {
@@ -48,6 +48,6 @@ async function signInWithCredentials() {
     // navigateTo('/demo/store', { external: true })
   } catch (error) {
     console.error(error);
-  }
+  } 
 }
 </script>
