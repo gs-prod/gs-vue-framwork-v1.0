@@ -112,23 +112,27 @@ body {
   display: flex; //表示将元素的显示方式设置为弹性盒子布局。
   justify-content: center;
   align-items: center;
-  width: 900px;
-  height: 470px;
+  //width: 900px;
+  //height: 470px;
+  height:380px;
+  width:auto;
   border: 1px solid #93939b;
   background-color: #ffffff;
 }
 
 .image {
   display: flex;
-  justify-content: flex-end; //将子元素沿主轴朝容器的尾部对齐。
+  //justify-content: flex-end; //将子元素沿主轴朝容器的尾部对齐。
+  justify-content: flex-start;//子元素将沿主轴起点对齐，也就是在主轴的起始位置上对齐。
   align-items: center;
   height: 380px;
-  width: 550px;
+  //width: 550px;
+  width:auto;
   img {
     background-repeat: no-repeat;
     height: 380px;
     width: auto;
-    opacity: 0.4; //将元素的透明度设置为 0.4，也就是元素将显示为半透明状态。
+    //opacity: 0.4; //将元素的透明度设置为 0.4，也就是元素将显示为半透明状态。
   }
 }
 
