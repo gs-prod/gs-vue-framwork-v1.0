@@ -25,9 +25,4 @@ interface CommonListsResp {
   result: ListsResult;
 }
 
-interface DemoUser {
-  id: number;
-  userName: string;
-  email: string;
-  mobile: number;
-}
+
