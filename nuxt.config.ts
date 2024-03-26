@@ -56,7 +56,7 @@ export default defineNuxtConfig({
         getSession: { path: "/getUserInfo", method: "post" },
       },
       pages: {
-        login: "/_demo/login",
+        login: "/",
       },
       token: { signInResponseTokenPointer: "/result/token" },
     },

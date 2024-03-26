@@ -104,14 +104,11 @@ function logout() {
     type: "warning",
   })
     .then(async () => {
-      await signOut({ callbackUrl: "/_demo/login" });
+      await signOut({ callbackUrl: "/" });
       ElNotification({
         title: "退出成功",
         type: "success",
       });
-      // location.href = process.env.LOGIN_URL ?? "";
-      // console.log(process.env.LOGIN_URL);
-      // navigateTo(process.env.LOGIN_URL, { external: true });
     })
     .catch((err) => {
       console.log(err);
