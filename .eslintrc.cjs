@@ -10,5 +10,7 @@ module.exports = {
   },
   extends: ["@nuxt/eslint-config", "plugin:prettier/recommended"],
   plugins: [],
-  rules: {},
+  rules: {
+    "linebreak-style": "off",
+  },
 };
