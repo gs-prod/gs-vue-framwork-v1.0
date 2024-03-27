@@ -15,7 +15,7 @@
         width="39"
         align="left"
       ></el-table-column>
-      <template v-for="item in data.labelListWidth" :key="item.prop">
+      <template v-for="item in data.labelLists" :key="item.prop">
         <el-table-column
           :prop="item.prop"
           :label="item.label"
@@ -62,7 +62,7 @@ const props = withDefaults(defineProps<ITableProps>(), {
 
 const data = reactive({
   currentPage4: undefined as number | undefined,
-  labelListWidth: [] as {
+  labelLists: [] as {
     label: string;
     prop: string;
     width: string | number;
@@ -81,13 +81,14 @@ type Emits = {
 const emits = defineEmits<Emits>();
 
 onMounted(() => {
-  data.labelListWidth = props.labelList.map((item) => {
+  data.labelLists = props.labelList.map((item) => {
     return {
       label: item.label,
       prop: item.prop,
       width: tableHeadLength(item.label),
     };
   });
+  console.log(data.labelLists);
 });
 // @ts-ignore
 function rowClick(row) {

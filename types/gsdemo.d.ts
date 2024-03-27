@@ -15,8 +15,8 @@ interface CommonResp<T> {
 }
 
 interface ListsResult {
-  content: DemoUser[];
-  totalElements: number;
+  records: DemoUser[];
+  total: number;
 }
 
 interface CommonListsResp {
@@ -24,5 +24,3 @@ interface CommonListsResp {
   message: string;
   result: ListsResult;
 }
-
-

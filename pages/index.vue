@@ -47,6 +47,8 @@
 </template>
 
 <script setup lang="ts">
+import type { RouteLocationRaw } from "vue-router";
+
 definePageMeta({ auth: false, layout: "no-layout" });
 import type { FormInstance } from "element-plus";
 const { signIn, status } = sideBaseUseAuth();
@@ -62,8 +64,13 @@ const loginRules = {
   password: [{ required: true, trigger: "blur", message: "密码不能为空" }],
 };
 
+const config = useRuntimeConfig();
+
 onMounted(() => {
-  if (status.value === "authenticated") navigateTo("/_demo/store");
+  if (status.value === "authenticated")
+    navigateTo(
+      config.public.LOGIN_CALLBACK_UR as RouteLocationRaw | null | undefined,
+    );
 });
 
 const handleLogin = async (loginFormRef: FormInstance | undefined) => {
@@ -77,12 +84,12 @@ const handleLogin = async (loginFormRef: FormInstance | undefined) => {
             userName: loginForm.userName,
             password: loginForm.password,
           },
-          { callbackUrl: "/_demo/user" },
+          { callbackUrl: config.public.LOGIN_CALLBACK_URL },
         );
       } catch (error) {
         ElNotification({
           title: "Error",
-          message: "请检查网络连接",
+          message: "登陆失败:" + error,
           type: "error",
         });
       } finally {

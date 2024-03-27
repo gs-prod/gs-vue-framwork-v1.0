@@ -25,6 +25,7 @@ export default defineNuxtConfig({
     // apiSecret: process.env.API_SECRET,
     public: {
       apiBase: process.env.BASE_URL,
+      LOGIN_CALLBACK_URL: process.env.LOGIN_CALLBACK_URL,
     },
   },
 
