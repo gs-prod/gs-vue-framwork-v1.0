@@ -9,8 +9,9 @@ module.exports = {
     parser: "@typescript-eslint/parser",
   },
   extends: ["@nuxt/eslint-config", "plugin:prettier/recommended"],
-  plugins: [],
+  plugins: ["prettier"],
   rules: {
     "linebreak-style": "off",
+    "prettier/prettier": ["error"]
   },
 };
