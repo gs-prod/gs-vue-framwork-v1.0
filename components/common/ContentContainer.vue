@@ -19,7 +19,7 @@
   // width: calc(100vw - 180px);
   // background: #eff2f6;
   padding: 10px 10px 0px 10px;
-  padding-top: 10px;
+  padding-top: 0px;
   &-block {
     border-radius: 4px;
     width: 100%;

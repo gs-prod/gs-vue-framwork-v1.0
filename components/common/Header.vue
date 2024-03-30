@@ -27,6 +27,7 @@
       <div
         class="pointer-cursor"
         style="display: flex; margin: 0px 10px"
+        small
         @click="goToHome"
       >
         <div style="margin-top: 16px">
@@ -61,6 +62,7 @@
       <div
         class="pointer-cursor"
         style="display: flex; margin: 0px 10px"
+        small
         @click="logout"
       >
         <div style="margin-top: 19px">

@@ -7,6 +7,8 @@
       :height="tableHeight"
       :stripe="true"
       :highlight-current-row="true"
+      size="small"
+      width="100%"
       @row-click="rowClick"
     >
       <el-table-column
@@ -27,6 +29,7 @@
     <el-pagination
       v-if="pagination"
       style="margin-top: 5px"
+      small
       :total="total"
       :current-page="currentPage"
       :page-size="pageSize"

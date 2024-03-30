@@ -12,6 +12,7 @@
       active-color="#000"
       active-text-color="#0c58ad"
       background-color="#fff"
+      size="small"
       @open="handleOpen"
       @close="handleClose"
     >
