@@ -14,7 +14,7 @@
           >
           </el-date-picker>
         </el-form-item> -->
-        <el-form-item label="userName">
+        <el-form-item size="small" label="userName">
           <el-input
             v-model="data.form.userName"
             style="width: 170px"
@@ -22,7 +22,7 @@
             clearable
           />
         </el-form-item>
-        <el-form-item label="email">
+        <el-form-item size="small" label="email">
           <el-input
             v-model="data.form.email"
             style="width: 170px"
@@ -30,7 +30,7 @@
             clearable
           />
         </el-form-item>
-        <el-form-item label="mobile">
+        <el-form-item size="small" label="mobile">
           <el-input
             v-model="data.form.mobile"
             style="width: 170px"
@@ -57,7 +57,11 @@
         </el-form-item> -->
       </div>
       <el-form-item>
-        <el-button type="default" style="margin-bottom: 0px" @click="onSubmit"
+        <el-button
+          size="small"
+          type="default"
+          style="margin-bottom: 0px"
+          @click="onSubmit"
           >查询</el-button
         >
       </el-form-item>

@@ -5,7 +5,7 @@
       title="Edit DemoUser"
       width="500"
     >
-      <el-form ref="formRef" :model="data.form" :rules="formRules">
+      <el-form ref="formRef" :model="data.form" :rules="formRules" size="small">
         <el-form-item
           label="userName"
           :label-width="data.formLabelWidth"
@@ -44,8 +44,12 @@
       </el-form>
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="closeDialog">Cancel</el-button>
-          <el-button type="primary" @click.prevent="editDemoUser(formRef)">
+          <el-button size="small" @click="closeDialog">Cancel</el-button>
+          <el-button
+            size="small"
+            type="primary"
+            @click.prevent="editDemoUser(formRef)"
+          >
             Confirm
           </el-button>
         </div>

@@ -14,9 +14,9 @@
       @row-dblclick="goToDetail"
       @current-change="handleCurrentChange"
     >
-      <el-table-column>
+      <el-table-column width="200px">
         <template #default="scope">
-          <el-button @click="handleEdit(scope.$index, scope.row)"
+          <el-button size="small" @click="handleEdit(scope.$index, scope.row)"
             >Edit</el-button
           >
 
@@ -28,7 +28,7 @@
             @confirm="handleDelete(scope.$index, scope.row)"
           >
             <template #reference>
-              <el-button type="danger">Delete</el-button>
+              <el-button size="small" type="danger">Delete</el-button>
             </template>
           </el-popconfirm>
         </template>

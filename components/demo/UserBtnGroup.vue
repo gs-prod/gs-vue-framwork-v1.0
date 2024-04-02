@@ -1,11 +1,15 @@
 <template>
   <div>
-    <el-button type="success" plain @click="data.dialogFormVisible = true"
+    <el-button
+      size="small"
+      type="success"
+      plain
+      @click="data.dialogFormVisible = true"
       >Add</el-button
     >
   </div>
   <el-dialog v-model="data.dialogFormVisible" title="Add DemoUser" width="500">
-    <el-form ref="formRef" :model="data.form" :rules="formRules">
+    <el-form ref="formRef" :model="data.form" :rules="formRules" size="small">
       <el-form-item
         label="userName"
         :label-width="data.formLabelWidth"
@@ -44,8 +48,14 @@
     </el-form>
     <template #footer>
       <div class="dialog-footer">
-        <el-button @click="data.dialogFormVisible = false">Cancel</el-button>
-        <el-button type="primary" @click.prevent="addDemoUser(formRef)">
+        <el-button size="small" @click="data.dialogFormVisible = false"
+          >Cancel</el-button
+        >
+        <el-button
+          size="small"
+          type="primary"
+          @click.prevent="addDemoUser(formRef)"
+        >
           Confirm
         </el-button>
       </div>
