@@ -64,6 +64,7 @@
           @click="onSubmit"
           >查询</el-button
         >
+        <el-button type="info" size="small" @click="reset">重置 </el-button>
       </el-form-item>
     </div>
   </el-form>
@@ -93,6 +94,11 @@ onMounted(() => {
 function onSubmit(e: MouseEvent) {
   demoUserStore.getDemoUsers(data.form);
 }
+
+const reset = () => {
+  demoUserStore.resetParams();
+  demoUserStore.getDemoUsers();
+};
 </script>
 
 <style lang="scss" scoped>

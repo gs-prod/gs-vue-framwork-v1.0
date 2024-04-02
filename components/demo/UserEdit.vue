@@ -117,7 +117,7 @@ const editDemoUser = async (formRef: FormInstance | undefined) => {
   await formRef.validate(async (valid, fields) => {
     if (valid) {
       try {
-        await useGsDemoStore.addDemoUser(data.form);
+        await useGsDemoStore.editDemoUser(data.form);
         ElNotification({
           title: "Success",
           message: "Save successfully",

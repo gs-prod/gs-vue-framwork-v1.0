@@ -5,7 +5,7 @@ export const useGsDemoUserStore = defineStore("gsDemoUserStore", {
     demoUsers: [] as DemoUser[],
     totalElements: 0,
     page: 1,
-    rows: 20,
+    rows: 10,
     params: {
       userName: "",
       email: "",
@@ -66,6 +66,11 @@ export const useGsDemoUserStore = defineStore("gsDemoUserStore", {
       await useQsRequest.delete("/api/user", {
         id,
       });
+    },
+
+    resetParams() {
+      resetForm(this.params);
+      this.page = 1;
     },
   },
 });
