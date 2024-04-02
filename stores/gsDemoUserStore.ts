@@ -4,8 +4,8 @@ export const useGsDemoUserStore = defineStore("gsDemoUserStore", {
   state: () => ({
     demoUsers: [] as DemoUser[],
     totalElements: 0,
-    pageNumber: 1,
-    pageSize: 20,
+    page: 1,
+    rows: 20,
     params: {
       userName: "",
       email: "",
@@ -23,14 +23,12 @@ export const useGsDemoUserStore = defineStore("gsDemoUserStore", {
       if (params !== undefined) this.params = params;
       const { data: result } = await useQsRequest.get("/api/user", {
         ...this.params,
-        pageNumber: this.pageNumber,
-        pageSize: this.pageSize,
+        page: this.page,
+        rows: this.rows,
       });
 
-      this.demoUsers = (result as Ref<CommonListsResp>).value.result.content;
-      this.totalElements = (
-        result as Ref<CommonListsResp>
-      ).value.result.totalElements;
+      this.demoUsers = (result as Ref<CommonListsResp>).value.result.records;
+      this.totalElements = (result as Ref<CommonListsResp>).value.result.total;
     },
 
     async addDemoUser(params: {

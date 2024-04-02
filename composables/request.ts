@@ -17,14 +17,14 @@ const request = async (url: string, params: any, options: RequestOptions) => {
     default: () => [],
     baseURL,
     method,
-    params: { ...params },
+    params: ["GET", "DELETE"].includes(method) ? { ...params } : undefined,
     headers:
       status.value === "authenticated"
         ? { Authorization: token.value || "" }
         : {},
     // lazy: true,
     // credentials: 'include',
-    body: method === "POST" ? JSON.stringify(params) : undefined,
+    body: ["POST", "PUT"].includes(method) ? JSON.stringify(params) : undefined,
     onRequest({ request, options }) {
       // Set the request headers
     },
