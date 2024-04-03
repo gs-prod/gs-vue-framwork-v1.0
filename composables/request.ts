@@ -40,41 +40,19 @@ const request = async (url: string, params: any, options: RequestOptions) => {
     onResponseError({ request, response, options }) {
       switch (response.status) {
         case 401:
-          // @ts-ignore
-          // location.href = process.env.DRG_LOGIN_URL;
-          ElNotification({
-            title: "Error",
-            message: "登录到期,请重新登录",
-            type: "error",
-          });
+          ElMessage.error("Login expired, please login again");
           break;
         case 400:
-          ElNotification({
-            title: "Error",
-            message: "参数格式不正确:" + response._data,
-            type: "error",
-          });
+          ElMessage.error("参数格式不正确:" + response._data);
           break;
         case 403:
-          ElNotification({
-            title: "Error",
-            message: "禁止访问" + response._data,
-            type: "error",
-          });
+          ElMessage.error("禁止访问" + response._data);
           break;
         case 422:
-          ElNotification({
-            title: "Error",
-            message: "参数校验失败:" + response._data,
-            type: "error",
-          });
+          ElMessage.error("参数校验失败:" + response._data);
           break;
         default:
-          ElNotification({
-            title: "Error",
-            message: "内部服务器错误:" + response._data,
-            type: "error",
-          });
+          ElMessage.error("内部服务器错误:" + response._data);
       }
     },
   });
