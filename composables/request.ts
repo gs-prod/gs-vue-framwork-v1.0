@@ -51,29 +51,28 @@ const request = async (url: string, params: any, options: RequestOptions) => {
         case 400:
           ElNotification({
             title: "Error",
-            message: "参数不正确",
+            message: "参数格式不正确:" + response._data,
             type: "error",
           });
           break;
         case 403:
           ElNotification({
             title: "Error",
-            message: "禁止访问",
+            message: "禁止访问" + response._data,
             type: "error",
           });
           break;
         case 422:
           ElNotification({
             title: "Error",
-            // @ts-ignore
-            message: response.data.message,
+            message: "参数校验失败:" + response._data,
             type: "error",
           });
           break;
         default:
           ElNotification({
             title: "Error",
-            message: "内部服务器错误",
+            message: "内部服务器错误:" + response._data,
             type: "error",
           });
       }
