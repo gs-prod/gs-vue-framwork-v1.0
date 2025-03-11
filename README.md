@@ -1,8 +1,11 @@
+# 配套后端地址
+https://github.com/gs-prod/gs-springboot-base-v1.0
+
 # qsfw_nuxt3
 
 基于vue的前端基盘
 
-集成内容包括：  
+技术栈：  
 1.vue3.x  
 2.nuxt3.x  
 3.typeScript  
