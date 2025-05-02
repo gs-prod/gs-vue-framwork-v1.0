@@ -69,7 +69,7 @@
             </template>
           </el-input>
           <div class="login-code">
-            <img :src="codeUrl" class="login-code-img" @click="getCode" />
+            <img :src="data.captcha" class="login-code-img" @click="getCaptcha" />
           </div>
         </el-form-item>
         <el-checkbox
@@ -118,6 +118,7 @@ const data = reactive({
   },
   captchaEnabled: true,
   loading: false,
+  captcha: '',
 });
 
 const loginFormRef = ref<FormInstance>();
@@ -125,6 +126,7 @@ const loginFormRef = ref<FormInstance>();
 const loginRules = {
   userName: [{ required: true, trigger: "blur", message: "账号不能为空" }],
   password: [{ required: true, trigger: "blur", message: "密码不能为空" }],
+  code: [{ required: true, trigger: "blur", message: "验证码不能为空" }],
 };
 
 const config = useRuntimeConfig();
@@ -134,6 +136,7 @@ onMounted(() => {
     navigateTo(
       config.public.LOGIN_CALLBACK_UR as RouteLocationRaw | null | undefined,
     );
+  getCaptcha()
 });
 
 const handleLogin = async (loginFormRef: FormInstance | undefined) => {
@@ -146,9 +149,11 @@ const handleLogin = async (loginFormRef: FormInstance | undefined) => {
           {
             userName: data.loginForm.userName,
             password: data.loginForm.password,
+            code: data.loginForm.code,
           },
           { callbackUrl: config.public.LOGIN_CALLBACK_URL },
         );
+        getCaptcha()
       } catch (error) {
         ElNotification({
           title: "Error",
@@ -163,6 +168,33 @@ const handleLogin = async (loginFormRef: FormInstance | undefined) => {
     }
   });
 };
+
+const getCaptcha = async () => {
+  const response = await useFetch('/api/captcha', {
+    method: "GET",
+    responseType: 'blob',
+  })
+  blobToBase64(response.data.value)
+    .then(base64String => {
+      data.captcha = base64String;
+    })
+    .catch(error => {
+      console.error('Blob 转 Base64 时出错:', error);
+    });
+}
+
+const blobToBase64 = (blob) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64String = reader.result;
+      resolve(base64String);
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
